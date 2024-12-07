@@ -1,3 +1,3 @@
-###lucyWeb
+lucyWeb
 ---
 website about Lucy band

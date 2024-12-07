@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .slideImg {
+                animation: fadeIn1 0.5s ease-in-out;
+                display: none;
+            }
+            .slideImg.active {
+                display: inline;
+            }
+            @keyframes fadeIn1 {
+                from {
+                    opacity: 0;
+                    margin-left: -300px;
+                }
+                to {
+                    opacity: 1;
+                    margin-left: 00px;
+                }
+            }
+
+            div {
+                width: 100%;
+                height: 550px;
+
+            }
+            div.left {
+                width: 50%;
+                float: left;
+                box-sizing: border-box;
+                background: #f8f9fa;
+            }
+            div.right {
+                width: 50%;
+                float: right;
+                box-sizing: border-box;
+                background: #ced4da;
+                margin : auto;
+            }
+        </style>
+        <style>
+            table{
+                border: 2px solid; border-collapse: collapse; text-align: center;
+
+                margin : auto;
+            }
+
+            th, td {border: 1px solid; padding: 20px 12px;}
+            th{background-color: #0123b4}
+        </style>
+    </head>
+    <body>
+        <title>Lucy's time</title>
+        <h1><p style="text-align: center">All Time LUCY </p></h1>
+        <h5>&nbsp;</h5>
+
+        <div class="slide">
+            <div style="text-align : center;">
+                <img src="{{ url_for('static', filename='image1.jpeg') }}" style ="width: 800px; height:auto" class="slideImg active">
+                <img src="{{ url_for('static', filename='image2.webp') }}" style ="width: 800px; height:auto" class="slideImg ">
+                <img src="{{ url_for('static', filename='image3.jpg') }}" style ="width: 800px; height:auto" class="slideImg ">
+                <img src="{{ url_for('static', filename='image4.webp') }}" style ="width: 800px; height:auto" class="slideImg ">
+            </div>
+        </div>
+        <script>
+            var slideImg = document.querySelectorAll(".slideImg");
+            window.setInterval(change, 5000);
+            var i = 0;
+            function change() {
+                slideImg[i].classList.remove("active");
+                i++;
+                if(i==slideImg.length) i=0;
+                slideImg[i].classList.add("active");
+            }
+        </script>
+        <div>
+            <div class="left">
+                <h3>&nbsp;</h3>
+                <h3>&nbsp;</h3>
+                <h6>&nbsp;</h6>
+                <h6>&nbsp;</h6>
+                <table>
+                    <th colspan="2" style="color: #ffffff">about Lucy</th>
+                    <tr><!-- 첫번째 줄 시작 -->
+                        <td><b>결성일</b></td>
+                        <td>2019년 6월</td>
+                    </tr><!-- 첫번째 줄 끝 -->
+                    <tr><!-- 두번째 줄 시작 -->
+                        <td><b>데뷔일</b></td>
+                        <td>2020년 5월 8일</td>
+                    </tr><!-- 두번째 줄 끝 -->
+                    <tr><!-- 세번째 줄 시작 -->
+                        <td><b>팬덤</b></td>
+                        <td>왈왈이</td>
+                    </tr><!-- 세번째 줄 끝 -->
+                    <tr><!-- 네번째 줄 시작 -->
+                        <td><a href="http://www.mystic89.net/artist/lucy">공식 사이트</a></td>
+                        <td><a href="https://cafe.daum.net/band.lucy">팬카페</a></td>
+                    </tr><!-- 네번째 줄 끝 -->
+                    <tr><!-- 다섯번째 줄 시작 -->
+                        <td><a href="https://www.instagram.com/band_lucy/">Instgram</a></td>
+                        <td><a href="https://www.youtube.com/lucyisland">Youtube</a></td>
+                    </tr><!-- 다섯번째 줄 끝 -->
+                </table>
+            </div>
+            <div class="right">
+                <h3>&nbsp;</h3>
+                <h6>&nbsp;</h6>
+                <h6>&nbsp;</h6>
+                <h2 style="text-align:center;">추천하는 Lucy 영상</h2>
+                <h3>&nbsp;</h3>
+                <div align="center">
+                    <iframe width="560" height="315" controls="1" src="https://www.youtube.com/embed/htXSJp2ugtY?si=OH2gK38cJNCHlIL1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
